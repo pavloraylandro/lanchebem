@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 15-Jul-2019 às 04:15
--- Versão do servidor: 10.1.40-MariaDB
--- versão do PHP: 7.3.5
+-- Tempo de geração: 15-Ago-2019 às 17:08
+-- Versão do servidor: 10.3.16-MariaDB
+-- versão do PHP: 7.3.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `lanchebem`
+-- Banco de dados: `lanchebem`
 --
 
 -- --------------------------------------------------------
@@ -41,6 +41,25 @@ CREATE TABLE `atendentes` (
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `cardapio`
+--
+
+CREATE TABLE `cardapio` (
+  `id` smallint(6) NOT NULL,
+  `comida` varchar(256) DEFAULT NULL,
+  `preco` double DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `cardapio`
+--
+
+INSERT INTO `cardapio` (`id`, `comida`, `preco`) VALUES
+(2, 'Lasanha A Millanesa Defumada', 1000);
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `clientes`
 --
 
@@ -58,39 +77,52 @@ CREATE TABLE `clientes` (
 --
 
 INSERT INTO `clientes` (`id`, `nome`, `cpf`, `datadenascimento`, `tipodecliente`, `datadecadastro`) VALUES
-(1, 'Cesario', '017.714.314.23', '1995-11-29', 'VIP', '2019-07-14');
+(5, 'Sasuke te falta odio da silva', '637.556.008-8', '1999-08-23', 'VIP', '2019-08-14'),
+(6, 'Naruto o Mais Brabo de Konoha', '637.123.008-7', '1999-08-13', 'VIP', '2019-08-14');
 
 --
--- Indexes for dumped tables
+-- Índices para tabelas despejadas
 --
 
 --
--- Indexes for table `atendentes`
+-- Índices para tabela `atendentes`
 --
 ALTER TABLE `atendentes`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `clientes`
+-- Índices para tabela `cardapio`
+--
+ALTER TABLE `cardapio`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Índices para tabela `clientes`
 --
 ALTER TABLE `clientes`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT de tabelas despejadas
 --
 
 --
--- AUTO_INCREMENT for table `atendentes`
+-- AUTO_INCREMENT de tabela `atendentes`
 --
 ALTER TABLE `atendentes`
-  MODIFY `id` smallint(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` smallint(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT for table `clientes`
+-- AUTO_INCREMENT de tabela `cardapio`
+--
+ALTER TABLE `cardapio`
+  MODIFY `id` smallint(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT de tabela `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `id` smallint(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` smallint(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
